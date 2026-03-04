@@ -21,11 +21,11 @@
             overflow-x: hidden;
         }
 
-        /* --- THE REVEAL EFFECT --- */
+        /* --- THE INFINITE REVEAL --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
         }
 
         .reveal.active {
@@ -34,144 +34,159 @@
         }
 
         header {
-            padding: 100px 20px 60px;
+            padding: 100px 20px;
             text-align: center;
+            background-color: var(--camp-cream);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
-        /* --- BIGGER BOLDER TITLE --- */
-        .header-box {
+        header h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: clamp(3rem, 10vw, 5rem); /* Scalable huge title */
+            font-size: 4rem;
             margin: 0;
-            border: 5px solid var(--camp-dark);
-            display: inline-block;
-            padding: 20px 70px;
-            background: white;
-            box-shadow: 12px 12px 0px var(--camp-orange);
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        header h1 span {
+            color: var(--camp-orange);
+            font-style: italic;
         }
 
-        /* --- COHESIVE CARD STYLE --- */
-        .transparency-card {
-            background: white;
-            border: 2px solid var(--camp-dark);
-            padding: 50px;
-            margin-bottom: 60px;
-            box-shadow: 10px 10px 0px var(--camp-dark);
+        /* --- ALTERNATING ROW LAYOUT (Like Start a Branch) --- */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-col {
+            flex: 1;
+            padding: 80px 8%;
+            min-width: 320px;
+        }
+
+        .visual-col {
+            flex: 1;
+            min-width: 350px;
+            align-self: stretch;
+            background-color: var(--camp-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--camp-cream);
+            position: relative;
+            padding: 40px;
+        }
+
+        .visual-col.orange { background-color: var(--camp-orange); }
+
+        .step-num {
+            font-family: 'Abril Fatface', serif;
+            font-size: 8rem;
+            opacity: 0.15;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
 
         h2 {
             font-family: 'Abril Fatface', serif;
-            font-size: 2.5rem;
-            color: var(--camp-orange);
-            margin-top: 0;
+            font-size: 3rem;
             margin-bottom: 20px;
         }
 
-        p { font-size: 1.05rem; margin-bottom: 25px; }
+        /* --- PLEDGE BANNER --- */
+        .pledge-banner {
+            background-color: var(--camp-orange);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            font-family: 'Abril Fatface', serif;
+            font-size: 2.5rem;
+            border-top: 5px solid var(--camp-dark);
+            border-bottom: 5px solid var(--camp-dark);
+        }
 
-        /* --- STYLED TRACKER BOX --- */
-        .tracker-frame {
-            border: 1px solid #ddd;
-            background: #fdfdfd;
-            margin-top: 20px;
+        /* --- CONTENT STYLING --- */
+        .tracker-wrapper {
+            width: 100%;
+            background: white;
+            padding: 10px;
+            border: 2px solid var(--camp-dark);
+            box-shadow: 10px 10px 0px var(--camp-orange);
         }
 
         iframe {
             width: 100%;
-            height: 500px;
+            height: 450px;
             border: none;
-            display: block;
         }
 
-        /* --- PLEDGE BOX RECTANGLE --- */
-        .pledge-box {
-            background-color: var(--camp-orange);
-            color: white;
-            padding: 50px;
-            text-align: center;
-            font-family: 'Abril Fatface', serif;
-            font-size: 2rem;
-            border: 4px solid var(--camp-dark);
-            box-shadow: 10px 10px 0px var(--camp-dark);
-            margin: 80px auto;
-            max-width: 850px;
-        }
-
-        /* --- UNIFIED GRAPH SECTIONS --- */
-        .viz-block {
-            margin-top: 30px;
-            background: #fff;
-            padding: 15px;
-            border: 1px solid #eee;
-        }
-
-        .viz-block img {
+        .diagram-img {
             width: 100%;
             height: auto;
-            display: block;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 15px 15px 0px var(--camp-dark);
         }
 
         .footer-note {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-style: italic;
-            opacity: 0.7;
-            display: block;
             margin-top: 15px;
+            display: block;
         }
 
-        strong { color: var(--camp-orange); }
-
-        @media (max-width: 768px) {
-            .transparency-card { padding: 30px; }
-            .header-box { font-size: 2.5rem; padding: 15px 40px; }
-            .pledge-box { font-size: 1.5rem; padding: 30px; }
-        }
     </style>
 </head>
 <body>
 
-    <header class="reveal">
-        <div class="header-box">Transparency</div>
+    <header>
+        <h1>Our <span>Transparency</span></h1>
+        <p>We believe in 100% accountability for every dollar raised.</p>
     </header>
 
-    <div class="container">
-        
-        <div class="transparency-card reveal">
-            <h2>Donation Tracking</h2>
-            <p>Please allow up to 2 hours after fundraising as we update our systems. You will be able to see how your individual donation is used to help the unhoused. The UDI should be inputted as a number like this <strong>(XXXXXX-XX)</strong>.</p>
-            
-            <div class="tracker-frame">
+    <div class="row reveal">
+        <div class="text-col">
+            <h2>Track Your Donation</h2>
+            <p>Please allow up to 2 hours after fundraising as we update our systems. You will be able to see how your individual donation is used to help the unhoused. The UDI should be inputted as a number like this: <strong>(XXXXXX-XX)</strong>.</p>
+        </div>
+        <div class="visual-col">
+            <div class="step-num">01</div>
+            <div class="tracker-wrapper">
                 <iframe src="https://script.google.com/macros/s/AKfycbyj_PH3QfcqofReTkSN_WAWJVjvpPsCRymvTorxNjR_nHfIkNvrKp3tNnyCRacsgQvRpA/exec"></iframe>
             </div>
         </div>
+    </div>
 
-        <div class="pledge-box reveal">
-            "We pledge to spend every single dollar we fundraise to directly help the Unhoused."
-        </div>
+    <div class="pledge-banner reveal">
+        "We pledge to spend every single dollar we fundraise to directly help the Unhoused."
+    </div>
 
-        <div class="transparency-card reveal">
+    <div class="row reveal">
+        <div class="text-col">
             <h2>Fiscal Year 2025</h2>
-            <p>We fundraised <strong>$1,011</strong> this year. We kept track and used every single dollar to help the Unhoused. We donated these supplies to Rosie's Place at the end of the year.</p>
-            <div class="viz-block">
-                <img src="https://via.placeholder.com/1000x500?text=Donation+Flow+Sankey" alt="Donation Flow Chart">
-            </div>
+            <p>We fundraised <strong>$1,011</strong> in Fiscal year 2025. We kept track and used every single dollar to help the Unhoused. We donated these supplies to Rosie's Place at the end of the year.</p>
         </div>
+        <div class="visual-col orange">
+            <div class="step-num">02</div>
+            <img src="https://via.placeholder.com/800x450?text=Donation+Flow+Diagram" class="diagram-img" alt="Donation Flow">
+        </div>
+    </div>
 
-        <div class="transparency-card reveal">
+    <div class="row reveal">
+        <div class="text-col">
             <h2>Operating Expenses</h2>
-            <p>All administrative expenses are paid for <strong>directly by the Officers</strong> of the non-profit. Our expenses for fiscal year 2025 are listed below.</p>
-            <div class="viz-block">
-                <img src="https://via.placeholder.com/1000x500?text=Operating+Expenses+Sankey" alt="Expense Flow Chart">
-            </div>
+            <p>All administrative expenses are paid for directly by the Officers of the non-profit. Our expenses for fiscal year 2025 are listed below.</p>
             <span class="footer-note">*Taxes for the amazon order</span>
         </div>
-
+        <div class="visual-col">
+            <div class="step-num">03</div>
+            <img src="https://via.placeholder.com/800x450?text=Operating+Expenses+Diagram" class="diagram-img" alt="Expense Flow">
+        </div>
     </div>
 
     <script>

@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* --- UNIQUE REVEAL --- */
         .reveal {
             opacity: 0;
             transform: scale(0.95);
@@ -38,12 +37,12 @@
             text-align: center;
         }
 
+        /* MATCHES START A BRANCH HEADER FONT */
         header h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin: 0;
-            text-transform: lowercase;
-            letter-spacing: -2px;
+            text-transform: none;
         }
 
         header h1 span { color: var(--camp-orange); }
@@ -57,7 +56,6 @@
             padding: 40px 20px;
         }
 
-        /* --- DASHBOARD CARDS --- */
         .card {
             background: white;
             border: 3px solid var(--camp-dark);
@@ -68,7 +66,6 @@
 
         .card.orange-shadow { box-shadow: 10px 10px 0px var(--camp-orange); }
 
-        /* Full width card for tracker */
         .full-width { grid-column: 1 / -1; }
 
         h2 {
@@ -85,10 +82,9 @@
             margin: 20px 0;
         }
 
-        /* --- THE PLEDGE BOX (CENTERED RECTANGLE) --- */
         .pledge-container {
             grid-column: 1 / -1;
-            padding: 60px 0;
+            padding: 40px 0;
             text-align: center;
         }
 
@@ -104,16 +100,17 @@
             max-width: 800px;
         }
 
-        /* --- VISUALS --- */
+        /* SMALLER TRACKER BOX */
         .tracker-frame {
             background: #f4f4f4;
             border: 1px solid #ddd;
-            margin-top: 20px;
+            margin: 20px auto 0;
+            max-width: 650px; /* Reduced size */
         }
 
         iframe {
             width: 100%;
-            height: 500px;
+            height: 380px; /* Reduced height */
             border: none;
             display: block;
         }
@@ -136,14 +133,13 @@
         @media (max-width: 900px) {
             .main-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 3rem; }
-            .pledge-box { font-size: 1.5rem; padding: 30px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1 class="reveal">transparency<span>.</span></h1>
+        <h1 class="reveal">Transparency</h1>
     </header>
 
     <div class="main-grid">
@@ -151,7 +147,7 @@
         <div class="card full-width orange-shadow reveal">
             <h2>Donation Tracking</h2>
             <div class="accent-line"></div>
-            <p>Please allow up to 2 hours after fundraising as we update our systems. You will be able to see how your individual donation is used to help the unhoused. The UDI should be inputted as a number like this <strong>(XXXXXX-XX)</strong>.</p>
+            <p>Please allow up to 2 hours after fundraising as we update our systems. Input your UDI as a number like this <strong>(XXXXXX-XX)</strong> to see your impact.</p>
             <div class="tracker-frame">
                 <iframe src="https://script.google.com/macros/s/AKfycbyj_PH3QfcqofReTkSN_WAWJVjvpPsCRymvTorxNjR_nHfIkNvrKp3tNnyCRacsgQvRpA/exec"></iframe>
             </div>
